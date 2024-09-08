@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="{% static 'img/logo.jpeg' %}" width="150" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 text-center mx-auto">
+                <h1 class="p-2" style="background-color: rgb(67, 67, 255); color: aliceblue; border-radius: 5px;">Formulaire officiel de demande de migration</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dolorem consectetur quisquam magni distinctio quo eum illo, enim ullam. Molestias!</p>
+            </div>
+        </div>
+        <form action="/form_demande/" enctype="multipart/form-data" method="post" >
+            {% csrf_token %}
+            <div class="row"><h5 class="text-primary" style="text-decoration: underline;">Informations personnelles</h5></div>
+            <div class="row my-3 border p-2">
+                <div class="col-2 mb-3">
+                    <label for="">Nom</label>
+                    <input type="text" name="nom" class="form-control" required>
+                </div>
+               <div class="col-2">
+                   <label for="floatingInput">Prénom</label>
+                   <input type="text" name="prenom" class="form-control" required>
+                </div>
+                <div class="col-2">
+                     <label for="">Post-nom</label>
+                     <input type="text" name="postnom" class="form-control" placeholder="Optionnel" required>
+                </div>
+               <div class="col-2">
+                   <label for="">Sexe</label>
+                   <select name="sexe" id="sexe" class="form-select">
+                        <option value="A" selected>Aucun</option>
+                        <option value="F">Féminin</option>
+                        <option value="M">Masculin</option>
+                    </select>
+                </div>
+               <div class="col-2">
+                    <label for="">Date de naissance</label>
+                    <input type="date" name='date_nais' class="form-control" required>
+                </div>
+                <div class="col-2">
+                    <label for="">Natonalité</label>
+                    <select name="nationalite"  class="form-select">
+                        <option value="Afrique du sud" selected>Afrique du sud</option>
+                        <option value="Algerie">Algerie</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Bénin">Bénin</option>
+                        <option value="Brézil">Brézil</option>
+                    </select>
+                </div>
+               <div class="col-2">
+                    <label for="">Pays de Residence</label>
+                    <select name="pays_res"s class="form-select">
+                        <option value="Afrique du sud" selected>Afrique du sud</option>
+                        <option value="Algerie">Algerie</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Bénin">Bénin</option>
+                        <option value="Brézil">Brézil</option>
+                    </select>
+                </div>
+                
+                <div class="col-4">
+                    <label for="">Adresse de Residence</label>
+                    <input type="text" name="address_res" class="form-control" placeholder="N°/Quartie/Avenue/Commune/Ville" required>
+                </div>
+                <div class="col-2">
+                    <label for="">Profession</label>
+                    <input type="text" name="profession" class="form-control" required>
+                </div>
+                <div class="col-4">
+                    <label for="">Provenance</label>
+                    <input type="text" name="provenance" class="form-control" required>
+                </div>
+                <div class="col-4">
+                    <label for="">Photo</label>
+                    <input type="file" name="img" class="form-control" required>
+                </div>
+            </div>
+            <div class="row"><h5 class="text-primary" style="text-decoration: underline;">Informations sur les documents</h5></div>
+            <div class="row border p-2 my-3">
+                <div class="col-4">
+                    <label for="">Numero du Visa</label>
+                    <input type="text" name="num_visa" class="form-control" required>
+                </div>
+                <div class="col-4">
+                    <label for="">Numero de la carte d'identité</label>
+                    <input type="text" name="num_carte_id" class="form-control" required>
+                </div>
+            </div>
+            <div class="row"><h5 class="text-primary" style="text-decoration: underline;">Informations liées au séjour </h5></div>
+            <div class="row border p-2 my-3">
+                <div class="col-4">
+                    <label for="">But du séjour</label>
+                    <input type="text" name="but_sej" class="form-control" required>
+                </div>
+                <div class="col-4">
+                    <label for="">Début du séjour</label>
+                    <input type="date" name="debut_sej" class="form-control" required>
+                </div>
+                <div class="col-4">
+                    <label for="">Fin du séjour</label>
+                    <input type="date" name="fin_sej" class="form-control" required>
+                </div>
+                <div class="col-4">
+                    <label for="">Ville à résider</label>
+                    <select name="ville" class="form-select">
+                        <option value="Béni">Béni</option>
+                        <option value="Kisangani">Kisangani</option>
+                        <option value="Lubumbashi">Lubumbashi</option>
+                        <option value="Mbandaka">Mbandaka</option>
+                        <option value="Goma">Goma</option>
+                        <option value="Mbuji">Mbuji mayi</option>
+                        <option value="Kanagnga">Kanagnga</option>
+                        <option value="Matadi">Matadi</option>
+                        <option value="Bunia">Bunia</option>
+                        <option value="Isiro">Isiro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row my-4">
+                <button type="button" class="btn btn-primary col-2 p-1" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                    Soumettre
+                </button>
+                <div class="col-2"><input type="reset" value="Effacer" class="btn btn-outline-success my-3"></div>
+            </div>
+            <!-- ----------------------------------------------------------------------------------- -->
+            <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenteredScrollableTitle">Avertissemment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Avant de finaliser votre demande de migration, veuillez vérifier les informations suivantes :</p>
+                    <ul>
+                        <li>Exactitude des données personnelles : Assurez-vous que votre nom, adresse et autres informations personnelles sont correctement renseignés.</li>
+                        <li>Conditions d'éligibilité : Vérifiez que vous répondez à toutes les conditions d'éligibilité pour la migration.</li>
+                    </ul>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <p>Une fois que vous aurez soumis ce formulaire, vous ne pourrez plus modifier les informations. Assurez-vous que tout est correct avant de continuer.</p>
+                    <p style="font-weight: bold;">Souhaitez-vous toujours soumettre le formulaire ?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary">Oui</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ----------------------------------------------------------------------------------- -->
+
+        </form>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <script>
+        function validate_message() {
+            alert('Merci d\avoir soumis votre demande de migration. Veuillez attendre une notification par mail de l\'avis de la direction. ')
+        }
+    </script>
+</body>
+</html>

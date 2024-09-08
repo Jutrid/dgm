@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titre %}
+<title>Voir Plus</title>
+{% endblock titre %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 mx-auto" style="margin-top: 20px; background-color: black;">
+            <h1 style="text-align: center; color: rgb(255, 255, 255);">Plus d'informations</h1>
+        </div>
+    </div>
+    {% for place in places %}
+        <div class="row my-5 d-flex justify-content-center">
+            <div class="col-md-8">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">{{place.nom}}</strong>
+                    <h3 class="mb-0">{{a.nom}}</h3>
+                    <p class="card-text mb-auto">{{place.description|truncatewords:20}}</p>
+                    <a href="/one{{place.id}}/" class="stretched-link">Continuez ...</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="/media/{{place.img}}" alt="" width='500' style="cursor: pointer;">
+                    </div>
+                </div>
+                </div>
+        </div>
+    {% endfor %}
+
+</div>
+</div>    
+{% endblock content %}
